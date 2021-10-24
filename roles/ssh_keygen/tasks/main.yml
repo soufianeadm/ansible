@@ -1,0 +1,11 @@
+---
+
+
+
+- name: generate_ssh key
+  openssh_keypair:
+    path: /tmp/soso
+    type: rsa
+    size: 4096
+    state: present
+    force: no

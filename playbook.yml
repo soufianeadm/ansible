@@ -1,0 +1,34 @@
+- name: Mon Playbook !!
+  hosts: all
+  vars:
+    mot: "hello" 
+  become_user: yes
+  tasks:
+  - name: je debug
+    debug:
+      msg: "{{ var1  }}"
+  - name: check connexion
+    ping:
+  - name: création du répertoire /tmp/xavki
+    file:
+      path: /tmp/xavki/{{ item.dir }}/{{ item.fichier }}
+      state: directory
+    with_items:
+    - { dir: "xzavki1" , fichier: "toto.txt" }
+    - { dir: "xzavki2" , fichier: "toto.txt" }
+    - { dir: "xzavki3" , fichier: "toto.txt" }
+  - name: utilisation de fetch
+    fetch:
+      src: /etc/hosts
+      dest : /tmp
+  - name: installation de nginx
+    apt:
+      name: nginx
+      state: present
+  - name: playbook test template
+    template:
+      src: monexemple.yml.j2
+      dest: /tmp/monexemple.yml 
+      mode: 0755
+      backup: yes
+

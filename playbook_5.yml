@@ -1,0 +1,10 @@
+- name : playbook5
+  hosts: soso2
+  tasks:
+  - name: recuperer ansible
+    setup:
+    register: __hosts_facts
+
+  - name: debug
+    debug:
+      var: __hosts_facts

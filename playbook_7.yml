@@ -1,0 +1,17 @@
+- name: mon playbook
+  hosts: soso2
+  become: yes
+  tasks:
+  - name: touch
+    file:
+      path: /tmp/xavki
+      state: touch
+  - name: test
+    command: 
+      cmd: ls -lath /tmp
+      creates: /tmp/xavki
+    register: __output
+  - name: debug
+    debug:
+      var: __output
+

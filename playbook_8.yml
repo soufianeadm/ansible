@@ -1,0 +1,17 @@
+- name: mon playbook
+  hosts: soso2
+  vars_prompt:
+  - name: env
+    prompt: "Quel est votre environnement ? prod/stage/dev"
+    default: dev
+  environment:
+    ENV: "{{ env }}"
+  tasks:
+  - name: echo
+    shell: "echo Salut $ENV"
+    register: __output
+  - name: print
+    debug:
+      var: __output
+
+

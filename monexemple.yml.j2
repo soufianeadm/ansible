@@ -1,0 +1,13 @@
+{{ template_run_date }} - "{{ ansible_managed }}" via {{ template_uid }}@{{ template_host }}
+
+{{ mot }} xzavki
+
+Bonjour ke m'appelle {{ item.prenom  }}
+
+j habite a {{ item.ville  }}
+
+{% for personne in personnes %}
+
+  je suis {{ personne.nom  }} 
+
+{% endfor %}

@@ -1,0 +1,36 @@
+- name: mon 3eme playbook
+  hosts: soso2
+  become: yes
+  tasks:
+  - name: installation nginx et urilitaires
+    apt:
+      name: curl, nginx
+      state: present
+      update_cache: yes
+      cache_valid_time: 3600
+  - name: supression de la du default nginx
+    file:
+      path: /etc/nginx/{{ item  }}/default
+      state: absent
+    with_items:
+    - "sites-available"
+    - "sites-enabled"
+  - name: configuration de nginx
+    template:
+      src: vhost.conf.j2
+      dest: /etc/nginx/sites-available/vhost.conf
+    notify: reload_nginx
+  - name: creation du lien symbolique
+    file:
+      src: "/etc/nginx/sites-available/vhost.conf"
+      dest: "/etc/nginx/sites-enabled/vhost.conf"
+      state: link
+  - name: start du nginx
+    systemd:
+      name: nginx
+      state: started
+  handlers:
+    - name: reload_nginx
+      systemd:
+        name: nginx
+        state: started

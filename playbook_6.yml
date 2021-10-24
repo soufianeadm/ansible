@@ -1,0 +1,29 @@
+- name: test
+  hosts: soso2
+  tasks:
+  - name: uri
+    uri: 
+      url: http://xavki.blog
+      return_content: yes
+      method: GET
+      body_format: json
+      #validate_certs: False
+      #status_code: [200,400,301,201]
+    register: __content
+  - name: debug
+    debug:
+      var: __content.url
+  - name: uri2
+    uri:
+      url: https://httpbin.org/basic-auth/toto/test
+      user: "toto"
+      password: "test"
+      method: GET
+      validate_certs: False
+      body_format: json
+      # resgister: __retour
+  - name: debug 2
+    debug:
+      var: __retour.url
+
+

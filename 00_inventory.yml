@@ -1,0 +1,17 @@
+all:
+  children:
+    common:
+      children:
+        webserver:
+          hosts:
+            soso[2:3]:
+        dbserver:
+          hosts:
+            soso3:
+            soso4:
+              var1: "node5"
+    monitoring:
+      children:
+        webserver:
+        dbserver:
+
