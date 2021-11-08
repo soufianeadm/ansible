@@ -4,7 +4,8 @@ all:
       children:
         webserver:
           hosts:
-            soso[2:3]:
+            soso2:
+            localhost:
         dbserver:
           hosts:
             soso3:

@@ -1,0 +1,17 @@
+- name: plyabook jinja condition
+  hosts: soso2
+  vars:
+    var1: 10
+    var2: 15
+  
+  tasks:
+  - name: copy
+    copy:
+      content: |
+        {% if var1 < 11 %}
+        {{ var1 }} est inf à 11
+        {% else %}
+        {{ var1 }} est sup ou égale à 11
+        {% endif %}
+      dest: /tmp/soso_conditions.txt
+

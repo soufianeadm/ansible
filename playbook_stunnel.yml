@@ -1,0 +1,5 @@
+- name: Playbook stunnel
+  hosts: soso2
+  become: yes
+  roles:
+    - stunnel-role

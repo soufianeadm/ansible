@@ -1,0 +1,19 @@
+- name: play
+  hosts: soso2
+  
+  vars:
+    var1: 10
+    var2: 20
+    configuration1: |
+      ceci est ma conf 1
+    configuration2: |
+      ceci est ma conf 2
+  tasks:
+  - name: test
+    copy:
+      content: |
+        {{ (var1 > var2) | ternary(configuration1, configuration2) }} 
+      dest: /tmp/xavki.txt  
+
+
+

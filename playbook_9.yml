@@ -1,0 +1,23 @@
+- name: playbook jinja
+  hosts: soso2
+ 
+  vars:
+    items:
+      valeur1: toto
+      valeur2: toto2
+      valeur3: toto3
+  tasks:
+  - name: debug
+    debug:
+      msg: |
+        {% for item,data in items.items() %}
+        {{ item  }} {{ data  }}
+        {% endfor %} 
+
+  - name: copy
+    copy:
+      content: |
+        {% for item,data in items.items() %}
+        {{ item  }} {{ data  }}
+        {% endfor %}
+      dest: /tmp/xxxxzavki.txt
