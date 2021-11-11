@@ -1,0 +1,4 @@
+---
+# defaults file for debug_role
+#
+sousou: je suis la variable de ansible

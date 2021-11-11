@@ -1,0 +1,5 @@
+---
+
+- name: mon 1er playbook
+  debug:
+    msg: "{{ sousou }}"
