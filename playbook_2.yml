@@ -14,4 +14,4 @@
 
   - name: mon premier template
     debug:
-      msg: "sous_domaine:{{ variable_1 }}"
+      msg: "sous_domaine:{{ mavariable }}"
