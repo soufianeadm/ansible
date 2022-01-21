@@ -8,9 +8,5 @@
       - { nom: "toto" , prenom: "toto", ville: "paris"}
   tasks:
   - name: mon premier template
-    template:
-        src: monexemple.yml.j2
-        dest: /tmp/monexemple_{{ item.nom  }}.yml 
-        backup: yes
-    with_items:
-    - "{{ personnes }}"
+    debug:
+      msg: "variable_1:{{ variable_1 }}"
