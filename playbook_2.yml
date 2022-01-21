@@ -1,5 +1,5 @@
 - name: mon 2eme playbook
-  hosts: soso2
+  hosts: all
   vars:
     mot: "hello"
     personnes:
