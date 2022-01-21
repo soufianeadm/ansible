@@ -1,5 +1,6 @@
 - name: mon 2eme playbook
-  hosts: all
+  connection: local
+  hosts: localhost
   vars:
     mot: "hello"
     personnes:
