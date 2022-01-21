@@ -8,6 +8,10 @@
       - { nom: "sousou" , prenom: "sousou", ville: "paris"}
       - { nom: "toto" , prenom: "toto", ville: "paris"}
   tasks:
+  - name: set fact
+    set_fact:
+      mavariable: "{{ lookup('vars', prj) }}"
+
   - name: mon premier template
     debug:
       msg: "variable_1:{{ variable_1 }}"
