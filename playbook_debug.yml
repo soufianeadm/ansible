@@ -2,6 +2,6 @@
   connection: local
   hosts: localhost
   vars:
-  - variable_1: "sousou_1"
+    variable_1: "sousou_1"
   roles:
     - debug_role
