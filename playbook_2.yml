@@ -10,7 +10,7 @@
   tasks:
   - name: set fact
     set_fact:
-      mavariable: "{{ lookup('vars', prj) }}"
+      mavariable: "{{ lookup('vars', 'prj') }}"
 
   - name: mon premier template
     debug:
