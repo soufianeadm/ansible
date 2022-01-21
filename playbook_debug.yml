@@ -1,5 +1,7 @@
 - name: Playbook debug role
   connection: local
   hosts: localhost
+  vars:
+  - variable_1: "sousou_1"
   roles:
     - debug_role
